@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เคาท์ดาวน์ปีใหม่</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flipdown/dist/flipdown.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+
+    <script>
+      
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="images/Happy2.gif" alt="เคาท์ดาวน์ปีใหม่" class="center-image">
+        </header>
+
+        <!-- Countdown -->
+        <div id="flipdown" class="flipdown"></div>
+
+        <button id="wish-button" class="wish-button">เขียนคำอวยพร</button>
+    </div>
+
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <button class="close-popup" id="close-popup">✖</button>
+            <h2 class="popup-title">มาเขียนคำอวยพรกัน</h2>
+            <p class="popup-subtitle">สวัสดีปีใหม่ครับ มาร่วมเขียนคำอวยพรให้กันเถอะ!!</p>
+            <label class="form-label" for="name">ชื่อของคุณ</label>
+            <input class="form-input" id="name" type="text" placeholder="ใส่ชื่อของคุณ">
+            
+            <label class="form-label" for="wish">เขียนคำอวยพร</label>
+            <textarea class="form-textarea" id="wish" placeholder="ใส่คำอวยพร"></textarea>
+            
+            <label class="form-label" for="sticker">เลือกสติกเกอร์ตกแต่ง</label>
+            <select class="form-select" id="sticker">
+                <option value="🎉">🎉</option>
+                <option value="✨">✨</option>
+                <option value="🌟">🌟</option>
+                <option value="🎁">🎁</option>
+            </select>
+            
+            <button class="send-wish" id="send-wish">อวยพร</button>
+        </div>
+    </div>
+    
+    <div id="wishes-container" class="wishes-container"></div>
+
+    <!-- Audio Player for Background Music -->
+    <audio id="audio" loop autoplay>
+        <source src="audio/new.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Volume Button -->
+    <button id="volume-toggle" class="volume-toggle">🔊</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/flipdown/dist/flipdown.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
