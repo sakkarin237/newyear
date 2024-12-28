@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const stickerSelect = document.getElementById('sticker');
     const volumeToggle = document.getElementById('volume-toggle');
     const audio = document.getElementById('audio');
+ // ตั้งค่าเริ่มต้นให้เสียงปิด
+    audio.muted = false;  // เริ่มต้นเสียงเปิด
 
     // Flipdown Countdown
     const now = new Date().getTime() / 1000;
