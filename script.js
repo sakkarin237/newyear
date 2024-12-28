@@ -9,8 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const stickerSelect = document.getElementById('sticker');
     const volumeToggle = document.getElementById('volume-toggle');
     const audio = document.getElementById('audio');
- // ตั้งค่าเริ่มต้นให้เสียงปิด
-    audio.muted = false;  // เริ่มต้นเสียงเปิด
 
     // Flipdown Countdown
     const now = new Date().getTime() / 1000;
@@ -89,29 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ทำให้เพลงเล่นอัตโนมัติเมื่อหน้าเว็บโหลด
-window.addEventListener("load", () => {
-    const audio = document.getElementById("audio");
-    // พยายามเล่นเพลง
-    audio.play().catch(err => {
-        console.log("Autoplay was blocked. Waiting for user interaction.");
+    // ตั้งค่าเริ่มต้นให้เสียงปิด
+    audio.muted = false;  // เริ่มต้นเสียงเปิด
+
+    // การเปิด/ปิดเสียงเพลง
+    volumeToggle.addEventListener('click', () => {
+        if (audio.muted) {
+            audio.muted = false; // เปิดเสียง
+            volumeToggle.textContent = '🔊'; // เปลี่ยนปุ่มเป็นไอคอนเสียงเปิด
+        } else {
+            audio.muted = true; // ปิดเสียง
+            volumeToggle.textContent = '🔇'; // เปลี่ยนปุ่มเป็นไอคอนเสียงปิด
+        }
     });
-});
-
-// การควบคุมเสียง
-const volumeToggle = document.getElementById("volume-toggle");
-const audio = document.getElementById("audio");
-
-volumeToggle.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.play();
-        volumeToggle.textContent = "🔊"; // แสดงไอคอนเสียง
-    } else {
-        audio.pause();
-        volumeToggle.textContent = "🔇"; // แสดงไอคอนปิดเสียง
-    }
-});
-
 
     // ดึงคำอวยพรจาก Firestore และแสดงผล
     db.collection("wishes").orderBy("timestamp", "desc").limit(15).onSnapshot((snapshot) => {
