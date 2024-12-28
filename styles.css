@@ -227,3 +227,17 @@ h1 {
         transform: translateY(0);
     }
 }
+#flipdown {
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.flipdown__unit {
+    font-size: 1.5rem; /* ปรับขนาดสำหรับมือถือ */
+}
+
+@media (max-width: 600px) {
+    .flipdown__unit {
+        font-size: 1rem;
+    }
+}
